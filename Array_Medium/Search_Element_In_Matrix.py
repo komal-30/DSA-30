@@ -56,6 +56,7 @@ def searchMatrix(matrix, target):
 
 
 #Hypothetical Flattening of array 
+#TC= O(log(NxM)),SC=O(1)
 def flattening_search(matrix, target):
     n = len(matrix)
     m = len(matrix[0])
