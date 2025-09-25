@@ -53,3 +53,38 @@ def searchMatrix(matrix, target):
         if matrix[i][0] <= target <= matrix[i][m - 1]:
             return binarySearch(matrix[i], target)
     return False
+
+
+#Hypothetical Flattening of array 
+def flattening_search(matrix, target):
+    n = len(matrix)
+    m = len(matrix[0])
+    low = 0
+    high = n*m -1
+
+    while(low<=high):
+        mid = (low+high)//2
+        row = mid//m
+        col = mid%m
+        if mat[row][col] == target:
+            return True
+        elif target > mat[row][col]:
+            low = mid + 1
+        else:
+            high = mid - 1
+    return False
+
+mat = [
+    [1,  2,  3,  4],
+    [5,  6,  7,  8],
+    [9, 10, 11, 12]
+]
+
+n = 3
+m = 4
+target = 8
+print(flattening_search(mat,target))
+
+
+    
+

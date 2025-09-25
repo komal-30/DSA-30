@@ -1,12 +1,12 @@
 def spiral_matrix(mat):
     ans=[]
-    m = len(mat)  #Row
-    n = len(mat[0]) #Column
+    n = len(mat)  #Row
+    m = len(mat[0]) #Column
 
     srow=0
-    erow=m-1
+    erow=n-1
     scol=0
-    ecol=n-1
+    ecol=m-1
 
     while(srow<=erow and scol <= ecol):
         #Top

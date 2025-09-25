@@ -1,3 +1,5 @@
+
+#TC = On(n2), SC = O(1)
 def count_occ(arr):
     max = float('-inf')
     max_elem = 0

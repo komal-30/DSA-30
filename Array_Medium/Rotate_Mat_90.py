@@ -1,3 +1,5 @@
+#Brute- Force This solution always works
+#TC = o(n2) SC=O(nxm)
 def rotate_mat(mat):
     m = len(mat)
     n = len(mat[0])
