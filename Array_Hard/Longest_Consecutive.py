@@ -1,14 +1,33 @@
-def longest_cons(arr):
-    max_count = float('-inf')
-    count = 0
-    for ind in range(len(arr)-1):
-        if arr[ind] < arr[ind+1]:
-            count+=1
-        else:
-            max_count = count
-            count=0
+def longest_consecutive_seq(nums):
+    num_set = set(nums)
+    longest_streak = 1
+    for num in num_set:
+        if num-1 not in num_set:
+            count=1
+            curr = num
+            while curr+1 in num_set:
+                curr+=1
+                count+=1
+            longest_streak= max(longest_streak,count)
+    return longest_streak
 
-    return max_count
-arr =  [100, 200, 1, 3, 2, 4]
-print(longest_cons(arr))
+nums = [100, 200, 1, 2, 3, 4]
+print(longest_consecutive_seq(nums))
+
+
+
+
+
+
+
+
+
+
+   
+
+
+   
+
+arr =  [3, 8, 5, 7, 6]
+print(longest_consecutive_seq(arr))
 
