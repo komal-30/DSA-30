@@ -1,33 +1,62 @@
-def longest_consecutive_seq(nums):
-    num_set = set(nums)
-    longest_streak = 1
-    for num in num_set:
-        if num-1 not in num_set:
-            count=1
-            curr = num
-            while curr+1 in num_set:
-                curr+=1
-                count+=1
-            longest_streak= max(longest_streak,count)
-    return longest_streak
 
-nums = [100, 200, 1, 2, 3, 4]
-print(longest_consecutive_seq(nums))
+#Brute Force - TC= O(n2) , Sc = O(1)
+def longest_sub_seq(arr):
+    longest_count=1
+    if not arr:
+        return 0
+    else:
+         for elem in arr:
+            curr_elem = elem
+            cnt =1 
+            while linear_search(arr,curr_elem+1):
+                curr_elem+=1
+                cnt+=1
+            longest_count = max(cnt,longest_count)
+    return longest_count
 
+def linear_search(arr,search):
+    for elem in arr:
+        if elem == search:
+            return True
+    return False
 
-
-
-
-
-
-
-
-
-   
+arr = [1, 9, 3, 10, 2, 20, 4]
+#print(longest_sub_seq(arr))
 
 
-   
+#Optimal Approach - TC - O(n), Sc = O(n)
+def longest_seq(arr):
+    set_arr = set(arr)
+    max_count =1 
+    for elem in set_arr:
+        curr = elem
+        if curr-1 not in set_arr:
+            start = curr
+            cnt = 1
+            while(curr+1  in set_arr):
+                curr +=1
+                cnt+=1
+            max_count = max(max_count,cnt)
+    return max_count
 
-arr =  [3, 8, 5, 7, 6]
-print(longest_consecutive_seq(arr))
+arr = [1, 9, 3, 10, 2, 20, 4]
+print(longest_seq(arr))
 
+
+
+
+#This Solution is wrong- It will not find the correct set
+def longest_sub_seq1(arr):
+    if not arr:
+        return 0
+    else:
+        longest_arr_count = 1
+        curr_count =1 
+        for i in range(len(arr)):
+            curr = arr[i]
+            if curr+1 in arr:
+                curr_count+=1
+            else:
+                longest_arr_count = max(curr_count,longest_arr_count)
+                curr_count=1
+        return max(curr_count,longest_arr_count)
